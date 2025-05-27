@@ -4,7 +4,7 @@
  */
 package card;
 import java.util.Random;
-import java.util.Scanner;
+
 
 /**
  * A class that fills a magic hand of 7 cards with random Card Objects
@@ -29,39 +29,34 @@ public class CardTrick {
             magicHand[i] = c;
             //c.setValue(insert call to random number generator here)
             //c.setSuit(Card.SUITS[insert call to random number between 0-3 here])
+             System.out.println("Magic Hand:");
             for (Card card : magicHand) {
-                System.out.println(card);
+                System.out.println(card.getValue() + " of " + card.getSuit());
         }
-       Scanner scanner = new Scanner(System.in);
+             Card luckyCard = new Card();
+             luckyCard.setValue(2);
+             luckyCard.setSuit("Clubs");
 
-        System.out.print("Pick a card value (1 to 13): ");
-        int userValue = scanner.nextInt();
-        scanner.nextLine();  // consume newline
+             System.out.println("\nLucky Card: " + luckyCard.getValue() + " of " + luckyCard.getSuit());
+        
 
-        System.out.print("Pick a card suit (Hearts, Diamonds, Clubs, Spades): ");
-        String userSuit = scanner.nextLine();
-
-        Card userCard = new Card();
-        userCard.setValue(userValue);
-        userCard.setSuit(userSuit);
-
-        boolean found = false;
-        for (Card card : magicHand) {
-            if (card.getValue() == userCard.getValue() && card.getSuit().equalsIgnoreCase(userCard.getSuit())) {
-                found = true;
-                break;
+             boolean found = false;
+             for (Card card : magicHand) {
+                if (card.getValue() == userCard.getValue() && card.getSuit().equalsIgnoreCase(userCard.getSuit())) {
+                    found = true;
+                    break;
         }
     }
 
-        if (found) {
-            System.out.println("Congratulations! Your card is in the magic hand.");
-        } else {
-            System.out.println("Sorry, your card is NOT in the magic hand.");
+              if (found) {
+                 System.out.println("Congratulations! Your card is in the magic hand.");
+              } else {
+                System.out.println("Sorry, your card is NOT in the magic hand.");
     }
 
-        scanner.close();
+       
 }
-        }
+        
         
         //insert code to ask the user for Card value and suit, create their card
         // and search magicHand here
